@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: ["https://fe-invofest.vercel.app", "http://localhost:5173"], 
+  origin: ["https://fe-invofest.vercel.app", "http://localhost:5173", "https://uts-pemweb-fe-mocha.vercel.app"], 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
