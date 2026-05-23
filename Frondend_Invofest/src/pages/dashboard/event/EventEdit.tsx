@@ -26,7 +26,6 @@ export default function EventEdit() {
   const { id } = useParams<{ id: string }>();
 
   const [categories, setCategories] = useState<Item[]>([]);
-  const [speakers, setSpeakers] = useState<Item[]>([]);
   const [isFetching, setIsFetching] = useState(true);
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
@@ -42,14 +41,12 @@ export default function EventEdit() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [catRes, speakRes, eventRes] = await Promise.all([
+        const [catRes, eventRes] = await Promise.all([
           fetch(`${API_URL}/categories`),
-          fetch(`${API_URL}/pembicara`),
           fetch(`${API_URL}/events/${id}`)
         ]);
 
         if (catRes.ok) setCategories(await catRes.json());
-        if (speakRes.ok) setSpeakers(await speakRes.json());
 
         if (eventRes.ok) {
           const eventData = await eventRes.json();
