@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const schema = z.object({
   name: z.string().min(3, "Nama event harus di isi"),
   tanggal: z.string().min(1, "Tanggal harus di isi"),
+  location: z.string().min(3, "Lokasi harus di isi"),
   description: z.string().min(5, "Deskripsi harus di isi"),
   categoryId: z.string().min(1, "Kategori harus dipilih"),
   pembicaraId: z.string().min(1, "Pembicara harus dipilih"),
@@ -59,7 +60,8 @@ export default function EventCreate() {
       // KONVERSI DATA KE FORMAT YANG DITERIMA CONTROLLER
       const payload = {
         name: data.name,
-        tanggal: data.tanggal, // Controller akan memproses jadi new Date()
+        dateEvent: data.tanggal, 
+        location: data.location,
         description: data.description,
         categoryId: Number(data.categoryId),
         pembicaraId: Number(data.pembicaraId),
@@ -124,6 +126,13 @@ export default function EventCreate() {
               <label className="font-medium text-sm">Tanggal Event</label>
               <input type="date" {...register("tanggal")} className="border rounded-lg px-3 py-2" />
               {errors.tanggal && <p className="text-red-500 text-sm">{errors.tanggal.message}</p>}
+            </div>
+
+            {/* LOKASI */}
+            <div className="flex flex-col gap-1">
+              <label className="font-medium text-sm">Lokasi</label>
+              <input type="text" {...register("location")} placeholder="Masukkan lokasi" className="border rounded-lg px-3 py-2" />
+              {errors.location && <p className="text-red-500 text-sm">{errors.location.message}</p>}
             </div>
 
             {/* DESKRIPSI */}
