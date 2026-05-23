@@ -21,10 +21,12 @@ import CategoryEdit from "./pages/dashboard/kategori/CategoryEdit";
 // EVENT
 import EventIndex from "./pages/dashboard/event/EvenIndex";
 import EventCreate from "./pages/dashboard/event/EventCreate";
+import EventEdit from "./pages/dashboard/event/EventEdit";
 
 // PEMBICARA
 import PembicaraIndex from "./pages/dashboard/pembicara/PembicaraIndex";
 import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
+import PembicaraEdit from "./pages/dashboard/pembicara/PembicaraEdit";
 
 // LAYOUT
 import MainLayout from "./layout/MainLayout";
@@ -78,12 +80,12 @@ function App() {
             {/* EVENT */}
             <Route path="/dashboard/event" element={<EventIndex />} />
             <Route path="/dashboard/event/create" element={<EventCreate />} />
-            <Route path="/dashboard/event/edit/:id" element={<EventCreate />} />
+            <Route path="/dashboard/event/edit/:id" element={<EventEdit />} />
 
             {/* PEMBICARA */}
             <Route path="/dashboard/pembicara" element={<PembicaraIndex />} />
             <Route path="/dashboard/pembicara/create" element={<PembicaraCreate />} />
-            <Route path="/dashboard/pembicara/edit/:id" element={<PembicaraCreate />} />
+            <Route path="/dashboard/pembicara/edit/:id" element={<PembicaraEdit />} />
 
           </Route>
 
