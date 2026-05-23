@@ -32,7 +32,7 @@ export default function Login() {
     const cleanNim = data.nim.trim();
     const cleanPassword = data.password.trim();
 
-    if (cleanNim === "24090017" && cleanPassword === "24090017") {
+    if (cleanNim === "24090014" && cleanPassword === "24090014") {
       localStorage.setItem("token", "dummy_token");
       alert("Login berhasil!");
       navigate("/dashboard");
